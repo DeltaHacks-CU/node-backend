@@ -1,0 +1,18 @@
+create table appdata(
+	loc_id SERIAL,
+	type_name VARCHAR(255),
+	food_name VARCHAR(255),
+	lat FLOAT NOT NULL,
+	lng FLOAT NOT NULL,
+	truck_desc VARCHAR(255),
+	rating int,
+	insert_time TIMESTAMP,
+	PRIMARY KEY (loc_id)
+);
+
+ALTER TABLE appdata ADD COLUMN created_at TIMESTAMP DEFAULT NOW();
+ALTER TABLE appdata DROP COLUMN insert_time;
+
+insert into appdata (type_name, food_name, lat, lng) values ('Colin Test', 'German', 45.421532, -75.697189);
+
+
