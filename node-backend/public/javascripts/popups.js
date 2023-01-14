@@ -38,6 +38,25 @@ map.on('click', function(e) {
         title: "Testing"
     }).addTo(map);
 
+    var lat = e.latlng.lat;
+    var lng = e.latlng.lng;
+
+    fetch('/create', {
+        method: 'POST',
+        headers: {
+            Authorization: 'Bearer abcdxyz',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            lat,
+            lng,
+        }),
+    }).then((res) => {
+            return res.json();
+        }).then((data) => console.log(data)
+    );
+
     marker.bindPopup("This is a test").openPopup();     
 });
+
 
