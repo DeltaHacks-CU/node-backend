@@ -2,7 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
+  // get req.body.credentials
+  // parse cred
+  // verify cred
+  // 
   res.send('respond with a resource');
 });
 
