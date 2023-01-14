@@ -9,12 +9,18 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 router.post('/', urlencodedParser, function(req, res, next) {
     console.log(req.body);
     console.log(req.body.name);
+    console.log(req.body.lat);
     text = 'Testing';
-    bodyname = req.body.name;
+    let lat = '';
+    lat = req.body.lat;
+    let lng = '';
+    lng = req.body.lng;
+    bodyname = [lat, lng];
+    console.log(bodyname);
     res.send({
-        text,
-        bodyname,
+        text
       });
-  });
+  }
+);
   
 module.exports = router;
