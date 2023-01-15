@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var client = require('../db').pool;
+const pool = require('../db');
 
 router.get('/', function(req, res, next) {
-    pool.query('SELECT type_name FROM appdata;', (error, results) => {
+    pool.query('SELECT * FROM appdata;', (error, results) => {
         if (error) {
             console.log(error);
             res.status(400);

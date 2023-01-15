@@ -1,7 +1,6 @@
 var express = require('express');
 const pool = require('../db');
 var router = express.Router();
-var client = require('../db').pool;
 
 router.post('/', function(req, res, next) {
     console.log(req.body);
