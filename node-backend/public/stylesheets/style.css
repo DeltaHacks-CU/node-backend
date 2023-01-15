@@ -7,11 +7,24 @@ html, body, #map {
 	width: 100%;
 }
 
-#header {
+/* #header {
 	display: flex;
-}
+} */
+
+/* #logo {
+    width: 30.6rem;
+    height: 14.4rem; 
+    background: url("streatslogo.png") center no-repeat; /* might have to input images differently*/
+	/* margin-left: auto !important;
+	margin-right: 0 !important;
+} */ */
 
 #title {
 	flex-grow: 1;
 	font-size:8em;
 }
+
+/* #googlesignin {
+	margin-left: auto !important;
+	margin-right: 0 !important;
+} */
