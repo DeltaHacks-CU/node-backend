@@ -12,7 +12,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var createRouter = require('./routes/create');
 var loggedinRouter = require('./routes/loggedin');
-var loggedout = require('./routes/logout');
+var loggedRouter = require('./routes/logout');
+var allRouter = require('./routes/all');
+var formRouter = require('./routes/form');
 
 // app setup
 var app = express();
@@ -42,7 +44,9 @@ const ifNotLoggedin = (req, res, next) => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/create', createRouter)
-app.use('/loggedin', ifNotLoggedin, loggedinRouter)
-app.use('/logout', loggedout)
+app.use('/loggedin', ifNotLoggedin, loggedinRouter);
+app.use('/logout', loggedRouter);
+app.use('/all', allRouter);
+app.use('/from', formRouter);
 
 module.exports = app;
