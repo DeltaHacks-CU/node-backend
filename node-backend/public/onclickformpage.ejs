@@ -109,7 +109,26 @@
             <label for="formFile" class="form-label">Upload Image</label>
             <input class="form-control" type="file" id="formFile" />
           </div>
-          <input id="secretdata" name="rating" />
+          <input id="secretdata" class="form-control" />
+          <input id="secretdataLat" class="form-control" />
+          <input id="secretdataLng" class="form-control" />
+          <script>
+            const url = window.location.href;
+            const latStart = url.indexOf("lat");
+            const latLong = url.substr(latStart);
+            let arr = latLong.split('&');
+            for (let i = 0; i < 2; i++) {
+              arr[i] = parseFloat(arr[i].substring(4));
+            }
+            console.log(arr);
+            let el1 = document.getElementById("secretdataLat");
+            el1.setAttribute("value", null);
+            el1.value = arr[0];
+
+            let el2 = document.getElementById("secretdataLng");
+            el2.setAttribute("value", null);
+            el2.value = arr[1];
+          </script>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
