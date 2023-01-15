@@ -5,10 +5,10 @@
 // Creates a leaflet map binded to an html <div> with id "map"
 // setView will set the initial map view to the location at coordinates
 // 13 represents the initial zoom level with higher values being more zoomed in
-var map = new L.map('map').setView([43.659752, -79.378161], 20);
+var map = new L.map('map').setView([43.26549282778952, -79.91815086773582], 20);
 
 var Icon = L.icon({
-    iconUrl: './imgs/truck.png',
+    iconUrl: './imgs/streatsfork.png',
     iconSize:     [50, 50], // size of the icon
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor

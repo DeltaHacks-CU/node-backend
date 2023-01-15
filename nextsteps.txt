@@ -1,6 +1,5 @@
 Next steps :
 
 - Take in latlng from form url params and submit with form submission
-- Back button on form page
 - Submit file for photo and then put into db
 - Build popups from /all endpoint
