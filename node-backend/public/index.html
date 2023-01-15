@@ -4,6 +4,7 @@
     <title>Streats</title>
     <link rel="stylesheet" href="stylesheets/style.css" />
     <link rel="stylesheet" href="stylesheets/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script
       src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
       integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
@@ -18,31 +19,40 @@
   </head>
 
   <body>
-    <div id="header">
-      <div id="title">Streats</div>
-      <div
-        id="g_id_onload"
-        data-client_id="1053023923235-fp3thbg8tqv6o8bmcsjvjl09p95dnnck.apps.googleusercontent.com"
-        data-context="signin"
-        data-ux_mode="popup"
-        data-login_uri="http://localhost:3000/users"
-        data-auto_prompt="false"
-      ></div>
 
-      <div
-        class="g_id_signin"
-        data-type="standard"
-        data-shape="rectangular"
-        data-theme="outline"
-        data-text="signin_with"
-        data-size="large"
-        data-logo_alignment="left"
-      ></div>
-    </div>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="logo" href = "#">
+        <img src="streatslogo.png" width="15%" class="d-inline-block align-bottom" alt="">
+      </a>
+      <a class="navbar-brand navbar-right" href="#">
+        <div id="googlesignin">
+          <div
+            id="g_id_onload"
+            data-client_id="1053023923235-fp3thbg8tqv6o8bmcsjvjl09p95dnnck.apps.googleusercontent.com"
+            data-context="signin"
+            data-ux_mode="popup"
+            data-login_uri="http://localhost:3000/users"
+            data-auto_prompt="false"
+          ></div>
+
+          <div
+            class="g_id_signin"
+            data-type="standard"
+            data-shape="rectangular"
+            data-theme="outline"
+            data-text="signin_with"
+            data-size="large"
+            data-logo_alignment="right"
+          ></div>
+        </div>
+      </a>
+      
+    </nav>
     <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
     <div id="map"></div>
     <script src="javascripts/webmap.js" charset="utf-8"></script>
     <script src="javascripts/popups.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 
   <script>
