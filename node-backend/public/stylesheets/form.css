@@ -86,7 +86,7 @@ fieldset {
   margin-top: 1em;
 }
 
-#secretdata, #secretdataLat, #secretdataLng {
+#secretdata, #secretdataLat, #secretdataLng, #secretbutton, #secretdataLng1, #secretdataLat1 {
   visibility: hidden;
   height: 0;
 }

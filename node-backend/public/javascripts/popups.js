@@ -45,16 +45,16 @@ function createpopups(data){
 	let lat = ''
 	let lng = ''
 	for (var i = 0; i < data.length; i++) {
-		if (data[i]['type_name'] == 'NULL'){
+		if (data[i]['type_name'] == 'null'){
 			data[i]['type_name'] = ''
 		}
-		if (data[i]['food_name'] == 'NULL'){
+		if (data[i]['food_name'] == 'null'){
 			data[i]['food_name'] = ''
 		}
-		if (data[i]['truck_desc'] == 'NULL'){
+		if (data[i]['truck_desc'] == 'null'){
 			data[i]['truck_desc'] = ''
 		}
-		if (data[i]['rating'] == 'NULL'){
+		if (data[i]['rating'] == 'null'){
 			data[i]['rating'] = ''
 		}
 		text = `<h1>${data[i]['type_name']} (${data[i]['food_name']})</h1><br>${data[i]['truck_desc']}<br>Rating : ${data[i]['rating']}/5`;
