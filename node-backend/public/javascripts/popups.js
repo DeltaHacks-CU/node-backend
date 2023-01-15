@@ -24,16 +24,6 @@ L.circleMarker([43.659752, -79.378161]).addTo(map)
 
 map.on
 
-map.on('click', function(e) {
-	try {
-		let lat = e.latlng.lat;
-		let lng = e.latlng.lng;
-		window.location.href = `http://localhost:3000/onclickformpage?lat=${lat}&lng=${lng}`;
-	} catch (e) {
-		console.log(e);
-	}
-});
-
 // map.on('click', function(e) {        
 // 	var popLocation= e.latlng;
 //     // getelementbyclassname('hiddenForm').style('display') = show
