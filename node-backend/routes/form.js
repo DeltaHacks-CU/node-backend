@@ -16,10 +16,12 @@ router.post('/', function(req, res, next) {
   let lat = req.body.lat;
   if (!lat){
     res.sendStatus(400);
+    throw error
   }
   let long = req.body.long;
   if (!long){
     res.sendStatus(400);
+    throw error
   }
   let truck_desc = req.body.truck_desc;
   if (!truck_desc){

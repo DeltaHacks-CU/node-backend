@@ -47,7 +47,7 @@ app.use('/create', createRouter)
 app.use('/loggedin', ifNotLoggedin, loggedinRouter);
 app.use('/logout', loggedRouter);
 app.use('/all', allRouter);
-app.use('/from', ifNotLoggedin, formRouter);
+app.use('/form', ifNotLoggedin, formRouter);
 app.use('/onclickformpage', ifNotLoggedin, formpageRouter);
 
 module.exports = app;
