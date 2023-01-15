@@ -105,7 +105,9 @@
             $("body").append(log);
             $('[type*="radio"]').change(function () {
               var me = $(this);
-              console.log(me.attr("value"));
+              // console.log(me.attr("value"));
+              let el = document.getElementById("secretdata");
+              el.value = me.attr("value");
             });
           </script>
 
@@ -113,6 +115,7 @@
             <label for="formFile" class="form-label">Upload Image</label>
             <input class="form-control" type="file" id="formFile" />
           </div>
+          <input id="secretdata" />
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
