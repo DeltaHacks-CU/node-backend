@@ -7,6 +7,13 @@
 // 13 represents the initial zoom level with higher values being more zoomed in
 var map = new L.map('map').setView([43.659752, -79.378161], 20);
 
+var Icon = L.icon({
+    iconUrl: './imgs/truck.png',
+    iconSize:     [50, 50], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
 // Adds the basemap tiles to your web map
 // Additional providers are available at: https://leaflet-extras.github.io/leaflet-providers/preview/
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -52,8 +59,8 @@ function createpopups(data){
 				.openPopup();
 		*/
 		var latlng = L.latLng(lat, lng);
-		L.circleMarker(
-				latlng
+		L.marker(
+				latlng, {icon: Icon}
 			).addTo(map)
 			.bindPopup(
 				text
@@ -61,7 +68,7 @@ function createpopups(data){
 		.openPopup();
 		// console.log(data[i]['loc_id']);
 
-		L.circleMarker([43.659752, -79.378161]).addTo(map)
+		L.marker([43.659752, -79.378161], {icon: Icon}).addTo(map)
 			.bindPopup(
 				'Here is a sample icon'
 			)
