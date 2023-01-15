@@ -5,6 +5,7 @@ const pool = require('../db');
 
 router.post('/', function(req, res, next) {
   // take in form data and insert into table
+
   let type_name = req.body.type_name;
   if (!type_name){
     type_name = 'NULL'
