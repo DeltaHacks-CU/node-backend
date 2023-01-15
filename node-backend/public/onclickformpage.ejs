@@ -24,81 +24,75 @@
       <div class="card-body">
         <form action="/form" method="POST">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
+            <label for="type_name" class="form-label"
               >Type</label
             >
             <input
-              type="email"
+              type="text"
               class="form-control"
               id="exampleFormControlInput1"
+              name="type_name"
               placeholder="ex. Food Truck"
             />
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
+            <label for="food_name" class="form-label"
               >Cuisine</label
             >
             <input
-              type="email"
+              type="text"
               class="form-control"
-              id="exampleFormControlInput1"
+              id="exampleFormControlInput2"
+              name="food_name"
               placeholder="ex. Chinese"
             />
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"
+            <label for="truck_desc" class="form-label"
               >Description</label
             >
             <textarea
               class="form-control"
               id="exampleFormControlTextarea1"
               rows="3"
+              name="truck_desc"
             ></textarea>
           </div>
-
-          <form>
             <fieldset>
               <span class="star-cb-group">
                 <input
                   type="radio"
                   id="rating-5"
-                  name="rating"
                   value="5"
                 /><label for="rating-5">5</label>
                 <input
                   type="radio"
                   id="rating-4"
-                  name="rating"
                   value="4"
                 /><label for="rating-4">4</label>
                 <input
                   type="radio"
                   id="rating-3"
-                  name="rating"
                   value="3"
                 /><label for="rating-3">3</label>
                 <input
                   type="radio"
                   id="rating-2"
-                  name="rating"
                   value="2"
                 /><label for="rating-2">2</label>
                 <input
                   type="radio"
                   id="rating-1"
-                  name="rating"
                   value="1"
                 /><label for="rating-1">1</label>
                 <input
                   type="radio"
                   id="rating-0"
-                  name="rating"
-                  value="0"
                   class="star-cb-clear"
+                  value="0"
                 /><label for="rating-0">0</label>
               </span>
             </fieldset>
-          </form>
           <script>
             var logID = "log",
               log = $('<div id="' + logID + '"></div>');
@@ -115,7 +109,26 @@
             <label for="formFile" class="form-label">Upload Image</label>
             <input class="form-control" type="file" id="formFile" />
           </div>
-          <input id="secretdata" class="form-control"/>
+          <input id="secretdata" name="rating" class="form-control" />
+          <input id="secretdataLat" name="lat" class="form-control" />
+          <input id="secretdataLng" name="lng" class="form-control" />
+          <script>
+            const url = window.location.href;
+            const latStart = url.indexOf("lat");
+            const latLong = url.substr(latStart);
+            let arr = latLong.split('&');
+            for (let i = 0; i < 2; i++) {
+              arr[i] = parseFloat(arr[i].substring(4));
+            }
+            // console.log(arr);
+            let el1 = document.getElementById("secretdataLat");
+            el1.setAttribute("value", null);
+            el1.value = arr[0];
+
+            let el2 = document.getElementById("secretdataLng");
+            el2.setAttribute("value", null);
+            el2.value = arr[1];
+          </script>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
