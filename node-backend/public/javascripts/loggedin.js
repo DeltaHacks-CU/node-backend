@@ -15,15 +15,6 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 	maxZoom: 21
 }).addTo(map);
 
-// Adds a popup marker to the webmap for GGL address
-L.circleMarker([43.659752, -79.378161]).addTo(map)
-	.bindPopup(
-		'Here is a sample icon'
-	)
-	.openPopup();
-
-map.on
-
 map.on('click', function(e) {
 	try {
 		let lat = e.latlng.lat;
@@ -33,5 +24,64 @@ map.on('click', function(e) {
 		console.log(e);
 	}
 });
+
+function GetData() {
+    try {
+        fetch('/all', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }).then((res) => {
+                return res.json();
+            }).then((data) => createpopups(data)
+        );
+    } catch (e) {
+        console.log(`No Live Data Could Be fetched ${e}`)
+    }
+}
+
+function createpopups(data){
+	data = JSON.parse(JSON.stringify(data));
+	// console.log(data)
+	let text = '';
+	let lat = ''
+	let lng = ''
+	for (var i = 0; i < data.length; i++) {
+		text = `<h1>${data[i]['type_name']} (${data[i]['food_name']})</h1><br>${data[i]['truck_desc']}<br>Rating : ${data[i]['rating']}/5`;
+		// console.log(text)
+		// console.log(data[i]['lat'])
+		// console.log(data[i]['lng'])
+		lat = parseFloat(data[i]['lat']);
+		lng = parseFloat(data[i]['lng']);
+		/*
+			L.circleMarker([43.659752, -79.378161]).addTo(map)
+				.bindPopup(
+					'Here is a sample icon'
+				)
+				.openPopup();
+		*/
+		var latlng = L.latLng(lat, lng);
+		L.circleMarker(
+				latlng
+			).addTo(map)
+			.bindPopup(
+				text
+			)
+		.openPopup();
+		// console.log(data[i]['loc_id']);
+
+		L.circleMarker([43.659752, -79.378161]).addTo(map)
+			.bindPopup(
+				'Here is a sample icon'
+			)
+			.openPopup();
+	}
+
+}
+
+window.onload = (event) => {
+	GetData();
+};
 
 
