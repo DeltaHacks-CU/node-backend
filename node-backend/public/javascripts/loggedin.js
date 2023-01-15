@@ -29,36 +29,36 @@ L.circleMarker([43.659752, -79.378161]).addTo(map)
 
 map.on
 
-// map.on('click', function(e) {        
-// 	var popLocation= e.latlng;
-//     // getelementbyclassname('hiddenForm').style('display') = show
-//     // set map to 50% left of screen and form to 50% right of screen
-// 	console.log(`Clicked`);
-//     console.log(popLocation);
-//     var marker = L.circleMarker(Object.values(popLocation), {
-//         elevation: 260.0,
-//         title: "Testing"
-//     }).addTo(map);
+map.on('click', function(e) {        
+	var popLocation= e.latlng;
+    // getelementbyclassname('hiddenForm').style('display') = show
+    // set map to 50% left of screen and form to 50% right of screen
+	console.log(`Clicked`);
+    console.log(popLocation);
+    var marker = L.circleMarker(Object.values(popLocation), {
+        elevation: 260.0,
+        title: "Testing"
+    }).addTo(map);
 
-//     var lat = e.latlng.lat;
-//     var lng = e.latlng.lng;
+    var lat = e.latlng.lat;
+    var lng = e.latlng.lng;
 
-//     fetch('/create', {
-//         method: 'POST',
-//         headers: {
-//             Authorization: 'Bearer abcdxyz',
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//             lat,
-//             lng,
-//         }),
-//     }).then((res) => {
-//             return res.json();
-//         }).then((data) => console.log(data)
-//     );
+    fetch('/create', {
+        method: 'POST',
+        headers: {
+            Authorization: 'Bearer abcdxyz',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            lat,
+            lng,
+        }),
+    }).then((res) => {
+            return res.json();
+        }).then((data) => console.log(data)
+    );
 
-//     marker.bindPopup("This is a test").openPopup();     
-// });
+    marker.bindPopup("This is a test").openPopup();     
+});
 
 
