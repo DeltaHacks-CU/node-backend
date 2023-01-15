@@ -11,10 +11,11 @@ const session = require('express-session');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var createRouter = require('./routes/create');
-var loggedinRouter = require('./routes/loggedin');
+var loggedinRouter = require('./routes/loggedinpage');
 var loggedRouter = require('./routes/logout');
 var allRouter = require('./routes/all');
 var formRouter = require('./routes/form');
+var formpageRouter = require('./routes/onclickformpage');
 
 // app setup
 var app = express();
@@ -48,5 +49,6 @@ app.use('/loggedin', ifNotLoggedin, loggedinRouter);
 app.use('/logout', loggedRouter);
 app.use('/all', allRouter);
 app.use('/from', ifNotLoggedin, formRouter);
+app.use('/onclickform', ifNotLoggedin, formpageRouter);
 
 module.exports = app;
