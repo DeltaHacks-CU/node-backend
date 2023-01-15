@@ -14,8 +14,8 @@ router.post("/", function (req, res, next) {
     });
     const payload = ticket.getPayload();
     const userid = payload["sub"];
-    if (ticket && payload){
-      console.log(payload);
+    if (ticket && payload) {
+      // console.log(payload);
       req.session.username = ticket.getPayload().email;
       req.session.userid = ticket.getPayload().jti;
       req.session.save()

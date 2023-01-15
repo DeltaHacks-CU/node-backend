@@ -12,7 +12,7 @@ router.post('/', function(req, res, next) {
     let lng = -75.697189
 
     pool.query(
-        'INSERT INTO appdata (type_name, food_name, lat, lng) VALUES (?, ?, ?, ?);',
+        'INSERT INTO appdata (type_name, food_name, lat, lng) VALUES ($1, $2, $3, $4);',
         [type_name, food_name, lat, lng],
         (error, results) => {
             if (error) {
@@ -30,7 +30,7 @@ router.post('/', function(req, res, next) {
             res.status(200).json(results.rows)
         }
     });
-    
+
   }
 );
   
