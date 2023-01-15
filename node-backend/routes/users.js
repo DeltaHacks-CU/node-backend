@@ -14,12 +14,15 @@ router.post("/", function (req, res, next) {
     });
     const payload = ticket.getPayload();
     const userid = payload["sub"];
-
-    console.log(payload);
+    if (ticket && payload){
+      console.log(payload);
+      req.session.username = ticket.getPayload().email;
+      req.session.userid = ticket.getPayload().jti;
+      req.session.save()
+    }
   }
-  verify().catch(console.error);
+  verify().catch(console.error).then(res.redirect('/loggedin'))
 
-  res.send("respond with a resource");
 });
 
 module.exports = router;
