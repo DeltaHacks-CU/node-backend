@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     // if logged in serve res.reder logged in
     // else redirect to index.html
-    res.render('loggedin', { title: 'Home' });
+    res.render('onclickformpage', { title: 'Form' });
 });
 
 module.exports = router;
