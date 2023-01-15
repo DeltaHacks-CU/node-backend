@@ -1,54 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="stylesheet" href="stylesheets/form.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-</head>
-<body>
-  <div class="card">
-    <div class="card-header">
-      Tell Us About The Food Location
-    </div>
-    <div class="card-body">
-      <form action="/form" method="POST">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="stylesheets/form.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-header">Tell Us About The Food Location</div>
+      <div class="card-body">
+        <form action="/form" method="POST">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Type</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="ex. Food Truck"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Cuisine</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="ex. Chinese"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Description</label
+            >
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            ></textarea>
+          </div>
 
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Type</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex. Food Truck">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Cuisine</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex. Chinese">
-        </div>
-        <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-    
-        <div class="rating">
-          <input type="radio" name="star"/><span class="star"> </span>
-          <input type="radio" name="star"/><span class="star"> </span>
-          <input type="radio" name="star"/><span class="star"> </span>
-          <input type="radio" name="star"/><span class="star"> </span>
-          <input type="radio" name="star"/><span class="star"> </span>
-          <!-- <span class="emo"> </span> -->
-        </div>
-        <div class="mb-3">
-          <label for="formFile" class="form-label">Upload Image</label>
-          <input class="form-control" type="file" id="formFile">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+          <form>
+            <fieldset>
+              <span class="star-cb-group">
+                <input
+                  type="radio"
+                  id="rating-5"
+                  name="rating"
+                  value="5"
+                /><label for="rating-5">5</label>
+                <input
+                  type="radio"
+                  id="rating-4"
+                  name="rating"
+                  value="4"
+                /><label for="rating-4">4</label>
+                <input
+                  type="radio"
+                  id="rating-3"
+                  name="rating"
+                  value="3"
+                /><label for="rating-3">3</label>
+                <input
+                  type="radio"
+                  id="rating-2"
+                  name="rating"
+                  value="2"
+                /><label for="rating-2">2</label>
+                <input
+                  type="radio"
+                  id="rating-1"
+                  name="rating"
+                  value="1"
+                /><label for="rating-1">1</label>
+                <input
+                  type="radio"
+                  id="rating-0"
+                  name="rating"
+                  value="0"
+                  class="star-cb-clear"
+                /><label for="rating-0">0</label>
+              </span>
+            </fieldset>
+          </form>
+          <script>
+            var logID = "log",
+              log = $('<div id="' + logID + '"></div>');
+            $("body").append(log);
+            $('[type*="radio"]').change(function () {
+              var me = $(this);
+              console.log(me.attr("value"));
+            });
+          </script>
+
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Upload Image</label>
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="card-footer text-muted">
+        Thank you for your help putting small businesses on the map!
+      </div>
     </div>
-    <div class="card-footer text-muted">
-      Thank you for your help putting small businesses on the map!
-    </div>
-  </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
