@@ -22,7 +22,53 @@ L.circleMarker([43.659752, -79.378161]).addTo(map)
 	)
 	.openPopup();
 
-map.on
+// map.on
+
+function GetData() {
+    try {
+        fetch('/all', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }).then((res) => {
+                return res.json();
+            }).then((data) => createpopups(data)
+        );
+    } catch (e) {
+        console.log(`No Live Data Could Be fetched ${e}`)
+    }
+}
+
+function createpopups(data){
+	data = JSON.parse(JSON.stringify(data));
+	console.log(data)
+	let text = '';
+	let lat = ''
+	let lng = ''
+	for (var i = 0; i < data.length; i++) {
+		// text = `<h1>${data[i]['type_name']} (${data[i]['food_name']})</h1><br>${data[i]['truck_desc']}<br>Rating : ${data[i]['rating']}/5`;
+		console.log(text)
+		console.log(data[i]['lat'])
+		console.log(data[i]['lng'])
+		lat = parseFloat(data[i]['lat']);
+		lng = parseFloat(data[i]['lng']);
+		var newmarker = new L.circleMarker(
+				L.latLng((lat, lng)
+			).addTo(map)
+			.bindPopup(
+				text
+			)
+		)
+		.openPopup();
+		console.log(data[i]['loc_id']);
+	}
+
+}
+
+window.onload = (event) => {
+	GetData();
+};
 
 // map.on('click', function(e) {        
 // 	var popLocation= e.latlng;

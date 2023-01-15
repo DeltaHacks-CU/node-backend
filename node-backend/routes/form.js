@@ -1,7 +1,7 @@
 const { request } = require('express');
 var express = require('express');
 var router = express.Router();
-var client = require('../db').pool;
+const pool = require('../db');
 
 router.post('/', function(req, res, next) {
   // take in form data and insert into table
