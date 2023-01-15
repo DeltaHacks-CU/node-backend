@@ -85,3 +85,7 @@ fieldset {
 .btn {
   margin-top: 1em;
 }
+
+#secretdata {
+  visibility: hidden;
+}
