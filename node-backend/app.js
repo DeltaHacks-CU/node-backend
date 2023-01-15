@@ -7,7 +7,6 @@ const dotenv = require("dotenv")
 dotenv.config()
 const session = require('express-session');
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var createRouter = require('./routes/create');
@@ -49,6 +48,6 @@ app.use('/loggedin', ifNotLoggedin, loggedinRouter);
 app.use('/logout', loggedRouter);
 app.use('/all', allRouter);
 app.use('/from', ifNotLoggedin, formRouter);
-app.use('/onclickform', ifNotLoggedin, formpageRouter);
+app.use('/onclickformpage', ifNotLoggedin, formpageRouter);
 
 module.exports = app;

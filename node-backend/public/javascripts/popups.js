@@ -18,16 +18,21 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 // Adds a popup marker to the webmap for GGL address
 L.circleMarker([43.659752, -79.378161]).addTo(map)
 	.bindPopup(
-		'MON 304<br>' + 
-		'Monetary Times Building<br>' +
-		'341 Victoria Street<br>' + 
-		'Toronto, Ontario, Canada<br>' +
-		'M5B 2K3<br><br>' + 
-		'Tel: 416-9795000 Ext. 5192'
+		'Here is a sample icon'
 	)
 	.openPopup();
 
 map.on
+
+map.on('click', function(e) {
+	try {
+		let lat = e.latlng.lat;
+		let lng = e.latlng.lng;
+		window.location.href = `http://localhost:3000/onclickformpage?lat=${lat}&lng=${lng}`;
+	} catch (e) {
+		console.log(e);
+	}
+});
 
 // map.on('click', function(e) {        
 // 	var popLocation= e.latlng;
