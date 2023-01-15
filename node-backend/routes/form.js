@@ -19,13 +19,11 @@ router.post('/', function(req, res, next) {
       food_name = 'NULL'
     }
     let lat = req.body.lat;
-    lat = 18.4;
     if (!lat){
       res.sendStatus(400);
       throw error
     }
     let lng = req.body.lng;
-    lng = 12.3;
     if (!lng){
       res.sendStatus(400);
       throw error
@@ -53,6 +51,8 @@ router.post('/', function(req, res, next) {
     );
   } catch (error) {
     console.log(`Error Form invalid : ${error}`);
+    res.setHeader("Status", 404);
+    res.redirect('/loggedin');
   }
 });
   
