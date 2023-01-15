@@ -1,75 +1,87 @@
+@charset "UTF-8";
+.star-cb-group {
+  /* remove inline-block whitespace */
+  font-size: 0;
+  /* flip the order so we can use the + and ~ combinators */
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  /* the hidden clearer */
+}
+.star-cb-group * {
+  font-size: 2rem;
+}
+.star-cb-group > input {
+  display: none;
+}
+.star-cb-group > input + label {
+  /* only enough room for the star */
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 9999px;
+  width: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.star-cb-group > input + label:before {
+  display: inline-block;
+  text-indent: -9999px;
+  content: "☆";
+  color: #888;
+}
+.star-cb-group > input:checked ~ label:before, .star-cb-group > input + label:hover ~ label:before, .star-cb-group > input + label:hover:before {
+  content: "★";
+  color: #e52;
+  text-shadow: 0 0 1px #333;
+}
+.star-cb-group > .star-cb-clear + label {
+  text-indent: -9999px;
+  width: 0.5em;
+  margin-left: -0.5em;
+}
+.star-cb-group > .star-cb-clear + label:before {
+  width: 0.5em;
+}
+.star-cb-group:hover > input + label:before {
+  content: "☆";
+  color: #888;
+  text-shadow: none;
+}
+.star-cb-group:hover > input + label:hover ~ label:before, .star-cb-group:hover > input + label:hover:before {
+  content: "★";
+  color: #e52;
+  text-shadow: 0 0 1px #333;
+}
+
+:root {
+  font-size: 1em;
+  font-family: Helvetica, arial, sans-serif;
+}
+
 body {
-    /* background: #2c7dd9; */
-    }
-    
-    .rating {
-        width: 265px;
-        padding: 10px;
-        background: rgb(255, 255, 255);
-        margin: auto 0;
-        position: relative;
-        direction: rtl;
-    }
-    /* .rating .emo {
-        position: absolute;
-        font-family: FontAwesome;
-        color: #fff;
-        font-size: 100px;
-        bottom: 150%;
-        left: 50%;
-        transform: translateX(-50%);
-        display: inline-block;
-    }
-    .rating .emo:after {
-    content: '\f119';
-    } */
-    .rating input {
-    position: absolute;
-    width: 35px;
-    height: 50px;
-    cursor: pointer;
-    transform: translateX(53px);
-    opacity: 0;
-    z-index: 5;
-    }
-    /* .rating input:nth-of-type(4):checked ~ .emo:after, .rating input:nth-of-type(4):hover ~ .emo:after, .rating input:nth-of-type(3):checked ~ .emo:after, .rating input:nth-of-type(3):hover ~ .emo:after {
-    content: '\f11a';
-    }
-    .rating input:nth-of-type(1):checked ~ .emo:after, .rating input:nth-of-type(1):hover ~ .emo:after, .rating input:nth-of-type(2):checked ~ .emo:after, .rating input:nth-of-type(2):hover ~ .emo:after {
-    content: '\f118';
-    } */
-    .rating input:nth-of-type(1) {
-    right: 50px;
-    }
-    .rating input:nth-of-type(2) {
-    right: 100px;
-    }
-    .rating input:nth-of-type(3) {
-    right: 150px;
-    }
-    .rating input:nth-of-type(4) {
-    right: 200px;
-    }
-    .rating input:nth-of-type(5) {
-    right: 250px;
-    }
-    .rating input:nth-of-type(6) {
-    right: 300px;
-    }
-    .rating input:checked ~ .star:after, .rating input:hover ~ .star:after {
-    content: '\f005';
-    }
-    .rating .star {
-    display: inline-block;
-    font-family: FontAwesome;
-    font-size: 42px;
-    color: #FBB202;
-    cursor: pointer;
-    margin: 3px;
-    }
-    .rating .star:after {
-    content: '\f006';
-    }
-    .rating .star:hover ~ .star:after, .rating .star:hover:after {
-    content: '\f005';
-    }
+  background: white;
+  color: #888;
+}
+
+fieldset {
+  border: 0;
+  background: white;
+  width: 100%;
+  border-radius: 1px;
+  padding: 1em 1.5em 0.9em;
+  margin: auto;
+}
+
+#log {
+  margin: 1em auto;
+  width: 5em;
+  text-align: center;
+  background: transparent;
+}
+
+.card-footer {
+  margin-top: 5em;
+}
+
+.btn {
+  margin-top: 1em;
+}
