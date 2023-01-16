@@ -3,8 +3,11 @@ The best way to find some great eats!
 
 ## Our team
 Colin McCormack - Full Stack - https://github.com/orgs/DeltaHacks-CU/people/colin-mccormack
+
 Kevin Wu - Frontend Developer - https://github.com/orgs/DeltaHacks-CU/people/kevinwu15
+
 Ryan Zhang - Backend Developer - https://github.com/orgs/DeltaHacks-CU/people/kevinwu15
+
 Aekus Singh - Ai Specialist - https://github.com/orgs/DeltaHacks-CU/people/ayekus
 
 ---
