@@ -78,7 +78,7 @@ function createpopups(data){
 		.openPopup();
 		// console.log(data[i]['loc_id']);
 
-		L.marker([43.26549282778952, -79.81815086773582], {icon: Icon}).addTo(map)
+		L.marker([43.26549282778952, -79.91815086773582], {icon: Icon}).addTo(map)
 			.bindPopup(
 				'Here is a sample icon'
 			)
